@@ -18,36 +18,6 @@ public class HibernateTest
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 
-//		List<Student> results = em.createNamedQuery("searchByName", Student.class).setParameter("name", "Jimi Hendriks").getResultList();
-//		for(Student student: results) {
-//			System.out.println(student);
-//		}
-//
-//		Query q = em.createQuery("select student.name from Student student");
-//		List<String>results2 = q.getResultList();
-//		for(String name:results2) {
-//			System.out.println(name);
-//		}
-//
-//		List<Object[]>results3 = em.createQuery("select student.name, student.enrollmentID from Student student").getResultList();
-//		for(Object[] obj:results3) {
-//			System.out.println("Name: " + obj[0]);
-//			System.out.println("ID: " + obj[1]);
-//		}
-//
-//		long numberOfStudents = (Long)em.createQuery("select count(student)from Student student").getSingleResult();
-//		System.out.println("We have " + numberOfStudents + " students");
-//
-//		List<Object[]> results4 = em.createNativeQuery("select s.name,s.enrollmentid from student s").getResultList();
-//		for(Object[] result: results4) {
-//			System.out.println(result[0] + " ; " + result[1]);
-//		}
-//
-//		List<Student>students = em.createNativeQuery("select * from student s", Student.class).getResultList();
-//		for(Student student: students) {
-//			System.out.println(student);
-//		}
-
 		System.out.println("Query 1: ");
 
 		// 1. Skriv en query för att få namnet på alla elever vars tutor kan undervisa i science.
