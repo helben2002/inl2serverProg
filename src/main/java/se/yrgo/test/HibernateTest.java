@@ -7,6 +7,7 @@ import se.yrgo.domain.Subject;
 import se.yrgo.domain.Tutor;
 
 import java.util.List;
+import java.util.Set;
 
 public class HibernateTest
 {
@@ -22,13 +23,11 @@ public class HibernateTest
 
 		// 1. Skriv en query för att få namnet på alla elever vars tutor kan undervisa i science.
 		Subject science = em.find(Subject.class, 2);
-		TypedQuery<Tutor> query= em.createQuery("from Tutor tutor where :subject member of tutor.subjectsToTeach",Tutor.class);
+		Query query = em.createQuery("select tutor.teachingGroup from Tutor tutor where :subject member of tutor.subjectsToTeach");
 		query.setParameter("subject", science);
-		List<Tutor>tutorsForScience = query.getResultList();
-		for(Tutor tutor : tutorsForScience) {
-			for (Student student : tutor.getTeachingGroup()) {
-				System.out.println("Student: " + student);
-			}
+		List<Student>studentsForScience = query.getResultList();
+		for(Student student : studentsForScience) {
+			System.out.println(student);
 		}
 
 		System.out.println("Query 2: ");
